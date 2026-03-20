@@ -4,7 +4,10 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.auto.NamedCommands;
+import com.pathplanner.lib.commands.PathPlannerAuto;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandPS5Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -38,12 +41,9 @@ public class RobotContainer {
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
+    registerNamedCommands();
     configureBindings();
-
-    // Set the options to show up in the Dashboard for selecting auto modes. If you
-    // add additional auto modes you can add additional lines here with
-    // autoChooser.addOption
-    autoChooser.setDefaultOption("Autonomous", Autos.exampleAuto(driveSubsystem, ballSubsystem));
+    configureAutonomousChooser();
   }
 
   /**
@@ -64,17 +64,11 @@ public class RobotContainer {
         .whileTrue(ballSubsystem.runEnd(() -> ballSubsystem.intake(), () -> ballSubsystem.stop()));
     // While the right bumper on the operator controller is held, spin up for 1
     // second, then launch fuel. When the button is released, stop.
-    
+
     driverController.R2()
         .whileTrue(ballSubsystem.spinUpCommand().withTimeout(SPIN_UP_SECONDS)
             .andThen(ballSubsystem.launchCommand())
             .finallyDo(() -> ballSubsystem.stop()));
-    
-    /*operatorController.R2().whileTrue(ballSubsystem.runEnd(
-        () -> ballSubsystem.launch(),
-        () -> ballSubsystem.stop()
-    ));*/
-
     // While the A button is held on the operator controller, eject fuel back out
     // the intake
     driverController.cross()
@@ -101,5 +95,30 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
     return autoChooser.getSelected();
+  }
+
+  private void registerNamedCommands() {
+    Command shooter = ballSubsystem.spinUpCommand().withTimeout(SPIN_UP_SECONDS)
+        .andThen(ballSubsystem.launchCommand().withTimeout(0.75))
+        .finallyDo(() -> ballSubsystem.stop());
+
+    Command intake = ballSubsystem.runEnd(() -> ballSubsystem.intake(), () -> ballSubsystem.stop())
+        .withTimeout(0.75)
+        .finallyDo(() -> ballSubsystem.stop());
+
+    Command stopIntake = ballSubsystem.runOnce(() -> ballSubsystem.stop());
+
+    NamedCommands.registerCommand("Shooter", shooter);
+    NamedCommands.registerCommand("Intake", intake);
+    NamedCommands.registerCommand("StopIntake", stopIntake);
+
+  }
+
+  private void configureAutonomousChooser() {
+    autoChooser.addOption("Auton_M", new PathPlannerAuto("Auton_M"));
+    autoChooser.addOption("Left_Auton", new PathPlannerAuto("Left_Auton"));
+    autoChooser.addOption("Right_Auton", new PathPlannerAuto("Right_Auton"));
+
+    SmartDashboard.putData("Auto Chooser", autoChooser);
   }
 }

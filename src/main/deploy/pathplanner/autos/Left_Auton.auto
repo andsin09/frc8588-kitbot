@@ -37,6 +37,12 @@
         {
           "type": "named",
           "data": {
+            "name": "StopIntake"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
             "name": "Shooter"
           }
         },
@@ -56,6 +62,12 @@
           "type": "path",
           "data": {
             "pathName": "L5"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopIntake"
           }
         },
         {

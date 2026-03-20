@@ -40,7 +40,7 @@
         "y": 5.524808216347898
       },
       "nextControl": {
-        "x": 3.2590773415956455,
+        "x": 3.259077341595645,
         "y": 4.964663852931062
       },
       "isLocked": false,
@@ -64,6 +64,12 @@
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [
+    {
+      "name": "StopIntake",
+      "waypointRelativePos": 0.5853190963060686,
+      "endWaypointRelativePos": null,
+      "command": null
+    },
     {
       "name": "Shooter",
       "waypointRelativePos": 3.0,

@@ -47,6 +47,12 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "StopIntake"
+          }
+        },
+        {
           "type": "wait",
           "data": {
             "waitTime": 0.25
@@ -80,6 +86,12 @@
           "type": "path",
           "data": {
             "pathName": "R5"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopIntake"
           }
         },
         {

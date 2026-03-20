@@ -49,6 +49,12 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
+      "name": "StopIntake",
+      "waypointRelativePos": 0.23169525065963062,
+      "endWaypointRelativePos": null,
+      "command": null
+    },
+    {
       "name": "Shooter",
       "waypointRelativePos": 2.0,
       "endWaypointRelativePos": null,
