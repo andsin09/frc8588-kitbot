@@ -106,11 +106,14 @@ public class RobotContainer {
         .withTimeout(0.75)
         .finallyDo(() -> ballSubsystem.stop());
 
+    Command StopShooter = ballSubsystem.runOnce(() -> ballSubsystem.stop());
+    
     Command stopIntake = ballSubsystem.runOnce(() -> ballSubsystem.stop());
 
     NamedCommands.registerCommand("Shooter", shooter);
     NamedCommands.registerCommand("Intake", intake);
     NamedCommands.registerCommand("StopIntake", stopIntake);
+    NamedCommands.registerCommand("StopShooter", StopShooter);
 
   }
 

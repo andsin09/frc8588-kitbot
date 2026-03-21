@@ -25,6 +25,12 @@
         {
           "type": "named",
           "data": {
+            "name": "StopShooter"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
             "name": "Intake"
           }
         },
@@ -50,6 +56,12 @@
           "type": "path",
           "data": {
             "pathName": "L4"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopShooter"
           }
         },
         {

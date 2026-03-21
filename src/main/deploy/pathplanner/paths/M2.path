@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.252,
-        "y": 5.584525939177102
+        "x": 5.12227191413238,
+        "y": 5.552075134168158
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.17094674702843,
-        "y": 5.909033645927497
+        "x": 5.45598032993558,
+        "y": 5.5747373224957055
       },
       "isLocked": false,
       "linkedName": "M2_Start"
@@ -51,7 +51,7 @@
     "velocity": 0,
     "rotation": 0.0
   },
-  "reversed": false,
+  "reversed": true,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,

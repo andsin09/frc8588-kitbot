@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.24810115350488,
-        "y": 5.7210381543921915
+        "x": 1.9711133416812716,
+        "y": 4.5319867866440955
       },
       "isLocked": false,
       "linkedName": "L2_Start"
@@ -64,6 +64,12 @@
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [
+    {
+      "name": "StopShooter",
+      "waypointRelativePos": 0,
+      "endWaypointRelativePos": null,
+      "command": null
+    },
     {
       "name": "Intake",
       "waypointRelativePos": 2.4622641509434007,
